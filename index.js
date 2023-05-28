@@ -8,6 +8,8 @@ const app = express();
 
 app.use(cors());
 
+app.use(express.json());
+
 //Base De Datos
 dbConnection();
 
@@ -15,15 +17,9 @@ console.log( process.env);
 
 
 //Routes
+app.use('/api/usuarios', require('./routes/usuarios'));
+app.use('/api/login', require('./routes/auth'));
 
-app.get('/', (req, res)=>{
-
-    res.json({
-        ok: true,
-        msg: 'Hola'
-    })
-
-});
 
 app.listen(3000, () => {
     console.log('Server running on port ' + 3000);
