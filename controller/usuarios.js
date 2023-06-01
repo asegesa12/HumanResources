@@ -106,7 +106,7 @@ const actualizarUsuario = async (req, res = response) =>{
     } catch (err) {
         console.log(err);
 
-        resizeTo.status(500).json({
+        res.status(500).json({
             ok: false,
             msg: 'Unexpected error'
         });
